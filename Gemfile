@@ -31,7 +31,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # Forms
 gem 'simple_form'
 
-# 
+# Admin panel
+gem 'devise'
+gem 'activeadmin'
 
 
 group :development, :test do

@@ -7,7 +7,7 @@ ruby '3.0.0'
 gem 'rails', '~> 6.1.2', '>= 6.1.2.1'
 
 # Databases, by environment
-group :development do 
+group :development, :test do 
   gem 'sqlite3', '~> 1.4'
 end 
 

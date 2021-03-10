@@ -8,7 +8,7 @@ gem 'rails', '~> 6.1.2', '>= 6.1.2.1'
 
 # Databases, by environment
 group :development, :test do 
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 1.4.2'
 end 
 
 group :production do

@@ -22,6 +22,15 @@ class ApplicationController < ActionController::Base
         session[:user_id].present?
 
         # else ... return false
+    end 
+
+    def force_login
+        unless is_logged_in?
+            flash[:error] = "Please log in to view photos."
+            redirect_to new_session_path
         end 
+
+    end 
+
 
 end

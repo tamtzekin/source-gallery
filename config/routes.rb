@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+
+  # ActiveAdmin URLs
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+    # Items controller
+    resources :items
+
     # Users can sign up multiple time/make many users
     resources :users
 

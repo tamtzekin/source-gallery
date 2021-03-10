@@ -12,19 +12,22 @@
 
     <body>
         <% if flash[:new_user_success].present? %>
-            <p>
-                <div class="flash-message">
-                    <%= flash[:new_user_success] %>
-                </div>
-            </p>
+            <div class="flash-message">
+                <%= flash[:new_user_success] %>
+            </div>
         <% end %>
 
         <% if flash[:success].present? %>
-            <p>
-                <div class="flash_message">
-                    <%= flash[:success] %>
-                </div>
-            </p>
+            <div class="flash_message">
+                <%= flash[:success] %>
+            </div>
+        <% end %>
+
+
+        <% if flash[:error].present? %>
+            <div class ="error">
+                <%= flash[:error] %>
+            </div>
         <% end %>
 
 

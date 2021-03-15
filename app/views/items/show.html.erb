@@ -2,10 +2,21 @@
 
     <h1><%= @item.title %></h1>
 
+    <p>
+        <strong>Categories:</strong>
+        <%= format_categories @item.categories %>
+    </p>
+
+    <% @item.categories do |c| %>
+        <span><%= link_to c.title, category_path(c) %></span>
+    <% end %>
+
+    <%= simple_format @item.description %>
+
     <%= image_tag @item.image.medium.url %>
 
     <p>
-        <%= link_to "Download", @item.image.url, download: true %>
+        <%= link_to "Download photo", @item.image.url, download: true %>
     </p>
 
 </div>

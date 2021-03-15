@@ -11,14 +11,9 @@
     </head>
 
     <body>
-        <% if flash[:new_user_success].present? %>
-            <div class="flash-message">
-                <%= flash[:new_user_success] %>
-            </div>
-        <% end %>
 
         <% if flash[:success].present? %>
-            <div class="flash_message">
+            <div class="success">
                 <%= flash[:success] %>
             </div>
         <% end %>

@@ -16,6 +16,22 @@ class AccountsController < ApplicationController
         end 
     end 
 
+
+    # NB. This shouldn't happen in the user controller because you should only be able to delete your own account.
+    def destroy
+        # Delete and unsubscribe
+        @current_user.destroy_and_unsubscribe
+
+        # Remove session
+        reset_session
+
+        # Show message
+        flash[:success] = "Your account has been deleted. Bye :("
+        
+        # Redirect
+        redirect_to root_path
+    end 
+
     
     def form_params
         params.require(:user).permit(:subscription_plan)

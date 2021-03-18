@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_115006) do
+ActiveRecord::Schema.define(version: 2021_03_17_122645) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,6 +38,21 @@ ActiveRecord::Schema.define(version: 2021_03_09_115006) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "category_items", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_category_items_on_category_id"
+    t.index ["item_id"], name: "index_category_items_on_item_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -53,6 +68,13 @@ ActiveRecord::Schema.define(version: 2021_03_09_115006) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "stripe_token"
+    t.string "subscription_plan"
+    t.boolean "is_subscription_active", default: true
+    t.string "stripe_customer"
+    t.string "stripe_subscription"
   end
 
+  add_foreign_key "category_items", "categories"
+  add_foreign_key "category_items", "items"
 end

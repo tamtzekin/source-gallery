@@ -7,6 +7,8 @@
         <%= csp_meta_tag %>
 
         <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+        <script src="https://js.stripe.com/v3/"></script>
         <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
 
@@ -31,6 +33,10 @@
             <nav>
                 <% if is_logged_in? %>
                     Hello, <%= @current_user.name %>
+
+                    <%= link_to "All photos", items_path %>
+                    <%= link_to "Categories", categories_path %>
+
                     <%# method: :delete comes from rails routes %>
                     <%= link_to "Log out", session_path, method: :delete %>
                 <% else %>

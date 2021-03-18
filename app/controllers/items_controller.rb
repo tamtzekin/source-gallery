@@ -4,7 +4,13 @@ class ItemsController < ApplicationController
     before_action :force_login
 
     def index
-        @items = Item.all
+        # If there's a search, filter
+        if params[:q].present?
+            # run search
+            @items = Item.where("lower(title) LIKE ?", "%" + params[:q].downcase + "%")
+        else
+            @items = Item.all
+        end
     end 
 
     def show

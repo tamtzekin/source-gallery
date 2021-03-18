@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_17_122645) do
+ActiveRecord::Schema.define(version: 2021_03_18_151743) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_03_17_122645) do
     t.string "subscription_plan"
     t.boolean "is_subscription_active", default: true
     t.string "stripe_customer"
-    t.string "stripe_subscription"
+    t.string "stripe_subscription_id"
   end
 
   add_foreign_key "category_items", "categories"

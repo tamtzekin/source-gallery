@@ -37,6 +37,7 @@
                     <%= link_to "All photos", items_path %>
                     <%= link_to "Categories", categories_path %>
 
+                    <%= link_to "Accounts", edit_account_path %>
                     <%# method: :delete comes from rails routes %>
                     <%= link_to "Log out", session_path, method: :delete %>
                 <% else %>

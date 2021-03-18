@@ -1,0 +1,13 @@
+<h1>Edit your account</h1>
+
+<%# use url: so it goes to the right account %>
+<%= simple_form_for @user, url: account_path do |f| %>
+    <%= f.input :subscription_plan, as: :select, collection: [
+        ['Basic subscription - $9.99/mo', 'price_1IVawhD7nNv7ju6LIVDqDrDW'], 
+        ['Pro subscription - $19.99/mo', 'price_1IVaxBD7nNv7ju6LTVYmp2xv']
+    ], 
+    include_blank: false %>
+
+    <%= f.button :submit, "Update account" %>
+
+<% end %>

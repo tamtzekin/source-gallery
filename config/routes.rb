@@ -12,11 +12,14 @@ Rails.application.routes.draw do
     
     # Users can sign up multiple time/make many users
     resources :users
-    
-    # Singular - one session at a time
+        
+    # User can only have 1 session at a time
     resource :session
+
+    # User can only have 1 account at a time
+    resource :account
     
-    
+
     get "about", to: "pages#about"
     
     root "pages#home"
